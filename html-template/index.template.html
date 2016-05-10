@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<style type="text/css" title="Default">
+body, div, h1, h2, h3, span, p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	margin: 0px;
+	overflow: hidden; /* disable scrollbars */
+}
+</style>
+</head>
+<body>
+<script type="text/javascript" src="swfobject.js"></script> 
+<script type="text/javascript">
+
+				var flashvars = {};
+				var params = {};
+				params.menu = "false";
+				params.quality = "high";
+				params.allowfullscreen = "true";
+				params.allowScriptAccess = "always";
+				params.allowNetworking = "all";
+				params.wmode = "transparent"; 
+				
+				
+				flashvars.isstreetview = "true";
+				flashvars.showsmall="0";
+		
+
+				swfobject.embedSWF( "${swf}.swf", "container", "100%", "100%", "10.1", "expressInstall.swf", flashvars, params);
+		function js(a,b){alert(a+":"+b)}		
+
+	function Flash3dViewLoadCompleteHanlder()
+	{		return;
+	var mousex =document.getElementById("container").ActionCode_getObject("view.mouseX");
+    var mousey =document.getElementById("container").ActionCode_getObject("view.mouseY");
+    alert("mousex"+mousex+":"+mousey);
+
+	
+
+	
+		return;
+	 var s = '[image id="ap8616" isnew="true" path="http://img.detuyun.cn/flash/qj_common/res/path20141124/danjiantou.png"'+
+						 ' location="pan:0,tilt:1" mouse="onClick:load_qjcl_10517_ap8616"   '+
+						 ' nextpan="-149"   nexttilt="0"   nextfov="90"  text="场景6666" '+
+						 ' textarg="h:20,s:30|0|90|30,bg:0x000000,bg1:qj_common/res/path20141124/icon/biaoqian.png,bg2:qj_common/res/path20141124/icon/jiantou-you.png" '+
+						 ' alpha="0.8"  overalpha="1" /]';
+						 
+					
+	document.getElementById("container").addXmlHotContent(s,"ap8616");
+						  
+
+	var a = document.getElementById("container").getAllPanoInfo();
+	alert(a);
+	
+	var a = document.getElementById("container").getCurrentPanoInfo();
+	alert(a);
+	
+//	alert(document.getElementById("container").runActionContent);
+document.getElementById("container").runActionContent("FlashHD3DView.print(eee55551);");
+	 	document.getElementById("container").addActionContent("aaaa","FlashHD3DView.print(55551);");
+	 document.getElementById("container").runAction("aaaa");
+	}
+	var p=0;var p1=0;
+	function hid1()
+	{
+	
+	
+	var s = "copy(vars.mousex,view.mouseX);copy(vars.mousey,view.mouseY);";
+	document. getElementById("container").runActionCode(s);
+	var mousex = document. getElementById("container").ActionCode_getObject("vars.mousex");
+	var mousey = document. getElementById("container").ActionCode_getObject("vars.mousey");
+	alert(mousex+":"+mousey);
+	
+	return;
+	
+	 p = 3;
+	 document.getElementById("container").FlashHD3DSetLinkArrowsPan("qjcl_509",p);
+	 
+	 // document.getElementById("container").runActionContent("FlashHD3DView.loadGroupData(g1);");
+	}
+	function hid2()
+	{ p1 = 3;
+	 document.getElementById("container").FlashHD3DSetLinkArrowsPan("qjcl_512",p);
+	 
+	 // document.getElementById("container").runActionContent("FlashHD3DView.loadGroupData(g2);");
+	}
+	function hid()
+	{
+		var s = "copy(view.managerData.controlData.autorotationCameraData.isAutorotating,false);";
+	document. getElementById("container").runActionCode(s);
+	var s = "copy(view.managerData.controlData.autorotationCameraData.delay,5);";
+	document. getElementById("container").runActionCode(s);
+	return;
+	var s2 = "[actioncodes]"+
+		   "[actioncode id='ac1']"+
+		  "ifelse(qjcl_4917,==,view.currentPanoramaData.id,ac2,ac3);"+
+		  "[/actioncode]"+
+		  "[actioncode id='ac2' ]"+
+			 "call(view.advancedMoveToView,0,0,null,10,null);"+
+		"[/actioncode]"+
+		 "[actioncode id='ac3' ]"+
+			 "addEvent(view,panoramaLoaded,ac4,view.loadPanoramaById,qjcl_4917);"+
+		"[/actioncode]"+
+		 "[actioncode id='ac4' ]"+
+			 "wait(1);\n"+
+			 "call(view.advancedMoveToView,0,0,null,10,null);"+
+		"[/actioncode]"+
+		"[/actioncodes]";
+		
+		
+//		alert(s2);
+		
+			document. getElementById("container").addActionCodes(s2);
+			document. getElementById("container").runActionContent("ActionsCode.runById(ac1)");
+			return;
+//	var s = "call(view.advancedMoveToView,0,0,null,10,null);";
+//	document. getElementById("container").runActionCode(s);
+	
+//	return;
+	var s = "call(view.moveToHotspot,ap2024,null);";
+	document. getElementById("container").runActionCode(s);
+	return;
+		var s = "addMark(tilt:45,glowColor:0xff0000,pan:45,backUrl:biaozhu_bg_1.png,pointUrl:biaozhu1.png,frame:10-2-77-20,label:草你大爷sqsqsqsqs,fontSize:15,fontColor:0xffffff);";
+	     	document. getElementById("container").runActionCode(s);
+	     	var s = "addMark(pan:90,backUrl:biaozhu_bg_1.png,pointUrl:biaozhu1.png,frame:10-2-77-20,label:草你大爷阿斯顿阿斯,fontSize:15,fontColor:0xffffff);";
+	     	document. getElementById("container").runActionCode(s);
+	     	var s = "addMark(backUrl:biaozhu_bg_1.png,pointUrl:biaozhu1.png,frame:10-2-77-20,label:草你大你大爷阿斯顿阿斯,fontSize:15,fontColor:0xffffff);";
+	     	document. getElementById("container").runActionCode(s);
+	 	//document.getElementById("container").runActionContent("ImageButton.setOpen(panoTitle,true);MenuScroller.setOpen(true)");
+	}
+	function go1(){
+		alert("go1");
+	}
+	
+		</script>
+<div id="container" style="width:800px;height:600px;"></div>
+
+<div style=" position:absolute; left:300px; top:200px;z-index:999999999999">
+
+<input type="button" name="sc" value="sc1" onclick="hid1()"/>
+
+<input type="button" name="sc" value="sc2" onclick="hid2()"/>
+</div>
+
+</div>
+</body>
+</html>

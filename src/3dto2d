@@ -1,0 +1,233 @@
+
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>3D to 2D</title>
+<style type="text/css">
+body{margin:0}
+#Bar{height:40px; line-height:40px; padding-left:30px; background:#333; color:#fff; font-family:Verdana; font-size:14px}
+#Stage{height:500px; padding-left:30px; box-shadow:0 3px 5px #ccc}
+#Stage1{float:left; margin-right:20px}
+#Stage2{float:left}
+</style>
+</head>
+
+<body>
+<div id="Bar">
+<input name="derection" type="checkbox" value="X" id="DX" checked><label for="DX">绕X轴</label>
+<input name="derection" type="checkbox" value="Y" id="DY"><label for="DY">绕Y轴</label>
+<input name="derection" type="checkbox" value="Z" id="DZ"><label for="DZ">绕Z轴</label>
+<input name="derection" type="checkbox" value="R" id="DR"><label for="DR">绕轴心</label>
+<input type="button" value="自动旋转" id="StartRoll">
+<input type="button" value="手动旋转" id="StopRoll">
+</div>
+
+<div id="Stage">
+<canvas id="Stage1" width="500" height="500"></canvas>
+<canvas id="Stage2" width="500" height="500"></canvas>
+</div>
+
+<script type="text/javascript">
+//向量旋转
+function rotateX(x, y, z, a) {
+	return {
+		x: x,
+		y: y * Math.cos(a) - z * Math.sin(a),
+		z: y * Math.sin(a) + z * Math.cos(a)
+	};
+}
+function rotateY(x, y, z, a) {
+	return {
+		x: x * Math.cos(a) + z * Math.sin(a),
+		y: y,
+		z: z * Math.cos(a) - x * Math.sin(a)
+	};
+}
+function rotateZ(x, y, z, a) {
+	return {
+		x: x * Math.cos(a) - y * Math.sin(a),
+		y: x * Math.sin(a) + y * Math.cos(a),
+		z: z
+	};
+}
+/*
+ * 球面坐标系转直角坐标系
+ * @param {Number} a 仰角
+ * @param {Number} b 转角
+ * @param {Number} r 半径
+ */
+function spherical(a, b, r) {
+	return {
+		x: r * Math.sin(a) * Math.cos(b + rotateRAngle),
+		y: r * Math.sin(a) * Math.sin(b + rotateRAngle),
+		z: r * Math.cos(a)
+	};
+}
+
+function projection(a, b, r) {
+	//球面转直角
+	var c1 = spherical(a, b, r);
+	
+	//绕X轴旋转
+	var c2 = rotateX(c1.x, c1.y, c1.z, rotateXAngle);
+	//绕Y轴旋转
+	var c3 = rotateY(c2.x, c2.y, c2.z, rotateYAngle);
+	//绕Z轴旋转
+	var c4 = rotateZ(c3.x, c3.y, c3.z, rotateZAngle);
+	
+	//平行投影至XOY平面
+	//return {x: c2.x, y: c2.y};
+	
+	//透视投影至XOY平面，观察点(0, 0, 1000)
+	var h = 1 - c4.z / 1000;
+	return {x: c4.x / h , y: c4.y / h};
+}
+
+function drawBall() {
+	ctx.clearRect(-250, -250, 500, 500);
+	ctx.beginPath();
+	
+	//纬线
+	for (var a = 0; a <= Math.PI; a += Math.PI / 8) {
+		//移至纬线起点
+		var startCircle = projection(a, 0, r);
+		ctx.moveTo(startCircle.x, startCircle.y);
+		
+		for (var b = 0; b <= 2 * Math.PI; b += Math.PI / 20) {
+			var p = projection(a, b, r);
+			ctx.lineTo(p.x, p.y);
+		}
+	}
+	
+	//经线
+	for (var b = 0; b <= 2 * Math.PI; b += Math.PI / 4) {
+		//移至北极
+		var startCircle = projection(0, 0, r);
+		ctx.moveTo(startCircle.x, startCircle.y);
+		
+		for (var a = 0; a <= Math.PI; a += Math.PI / 20) {
+			var p = projection(a, b, r);
+			ctx.lineTo(p.x, p.y);
+		}
+	}
+	
+	ctx.stroke();
+}
+
+function drawCube() {
+	function f(x, y, z) {
+		var c1 = rotateX(x, y, z, rotateXAngleC);
+		var c2 = rotateY(c1.x, c1.y, c1.z, rotateYAngleC);
+		var c3 = rotateZ(c2.x, c2.y, c2.z, rotateZAngleC);
+		
+		//平行投影至XOY平面
+		//return {x: c3.x, y: c3.y};
+		
+		//透视投影至XOY平面，观察点(0, 0, 1000)
+		var h = 1 - c3.z / 1000;
+		return {x: c3.x / h , y: c3.y / h};
+	}
+	
+	ctx2.clearRect(-250, -250, 500, 500);
+	ctx2.beginPath();
+	ctx2.moveTo(f(-125, -125, -125).x, f(-125, -125, -125).y);
+	ctx2.lineTo(f(125, -125, -125).x, f(125, -125, -125).y);
+	ctx2.lineTo(f(125, 125, -125).x, f(125, 125, -125).y);
+	ctx2.lineTo(f(-125, 125, -125).x, f(-125, 125, -125).y);
+	ctx2.lineTo(f(-125, -125, -125).x, f(-125, -125, -125).y);
+	ctx2.lineTo(f(-125, -125, 125).x, f(-125, -125, 125).y);
+	ctx2.lineTo(f(125, -125, 125).x, f(125, -125, 125).y);
+	ctx2.lineTo(f(125, 125, 125).x, f(125, 125, 125).y);
+	ctx2.lineTo(f(-125, 125, 125).x, f(-125, 125, 125).y);
+	ctx2.lineTo(f(-125, -125, 125).x, f(-125, -125, 125).y);
+	ctx2.moveTo(f(125, -125, 125).x, f(125, -125, 125).y);
+	ctx2.lineTo(f(125, -125, -125).x, f(125, -125, -125).y);
+	ctx2.moveTo(f(125, 125, 125).x, f(125, 125, 125).y);
+	ctx2.lineTo(f(125, 125, -125).x, f(125, 125, -125).y);
+	ctx2.moveTo(f(-125, 125, 125).x, f(-125, 125, 125).y);
+	ctx2.lineTo(f(-125, 125, -125).x, f(-125, 125, -125).y);
+	ctx2.stroke();
+}
+
+var r = 200;
+var rotateXAngle = Math.PI / 3,
+    rotateYAngle = 0,
+    rotateZAngle = 0,
+    rotateRAngle = Math.PI / 8;
+var rotateXAngleC = 0,
+    rotateYAngleC = Math.PI / 3,
+    rotateZAngleC = 0,
+    rotateRAngleC = 0;
+var delta = Math.PI / 200;
+
+var ctx = document.getElementById("Stage1").getContext("2d");
+ctx.lineWidth = 1;
+ctx.strokeStyle = "#333";
+ctx.translate(250, 250);
+drawBall();
+
+var ctx2 = document.getElementById("Stage2").getContext("2d");
+ctx2.lineWidth = 1;
+ctx2.strokeStyle = "#333";
+ctx2.translate(250, 250);
+drawCube();
+
+document.getElementById("Stage1").onmousedown = function(e) {
+	var x0 = e.clientX;
+	    y0 = e.clientY;
+	document.onmousemove = function(e) {
+		rotateXAngle = rotateXAngle + (y0 - e.clientY) * (Math.PI / (2 * r));
+		rotateYAngle = rotateYAngle - (x0 - e.clientX) * (Math.PI / (2 * r));
+		x0 = e.clientX;
+		y0 = e.clientY;
+		drawBall();
+	}
+	document.onmouseup = function(e) {
+		document.onmousemove = null;
+	}
+};
+
+document.getElementById("Stage2").onmousedown = function(e) {
+	var x0 = e.clientX;
+	    y0 = e.clientY;
+	document.onmousemove = function(e) {
+		rotateXAngleC = rotateXAngleC + (y0 - e.clientY) * (Math.PI / (2 * r));
+		rotateYAngleC = rotateYAngleC - (x0 - e.clientX) * (Math.PI / (2 * r));
+		x0 = e.clientX;
+		y0 = e.clientY;
+		drawCube();
+	}
+	document.onmouseup = function(e) {
+		document.onmousemove = null;
+	}
+};
+
+timer = null;
+document.getElementById("StartRoll").onclick = function() {
+	clearInterval(timer);
+	var dX = document.getElementById("DX").checked ? delta : 0;
+	    dY = document.getElementById("DY").checked ? delta : 0;
+	    dZ = document.getElementById("DZ").checked ? delta : 0;
+	    dR = document.getElementById("DR").checked ? delta : 0;
+	
+	timer = setInterval(function() {
+		rotateXAngle += dX;
+		rotateYAngle += dY;
+		rotateZAngle += dZ;
+		rotateRAngle += dR;
+		
+		rotateXAngleC += dX;
+		rotateYAngleC += dY;
+		rotateZAngleC += dZ;
+		
+		drawBall();
+		drawCube();
+	}, 10);
+};
+document.getElementById("StopRoll").onclick = function() {
+	clearInterval(timer);
+};
+</script>
+</body>
+</html>

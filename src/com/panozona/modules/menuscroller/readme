@@ -1,0 +1,42 @@
+<MenuScroller>
+   <scroller topBorder="thickness:2,color:#000000,alpha:1" bottomBorder="thickness:2,color:#000000,alpha:1" scrollsVertical="false" sizeLimit="80" maskPadding = "40"/> 
+	 <elements> 
+	    <element target="pa4" path="1.jpg" text = "测试" style="small"/> 
+	    <element target="pa3" path="1.jpg" text = "测试2" style="small"/> 
+	    <element target="pa5" path="1.jpg" /> 
+	 </elements> 
+	 <styles>
+		<style id="small" content="backColor:#000000,fontFamily:宋体,fontSize:12,fontColor:#ffffff,fontBold:false,alpha:0.5" />
+	</styles>
+	<icon  baseUrl="qj_common/modules_img/menuScroller/left1.png" mouseOverUrl="qj_common/modules_img/menuScroller/left1-2.png" move="vertical:0,horizontal:5" align="horizontal:left,vertical:middle" mouse="onClick:moveMenuScrollerLeft"/>
+	<icon  baseUrl="qj_common/modules_img/menuScroller/right1.png" mouseOverUrl="qj_common/modules_img/menuScroller/right1-2.png" move="vertical:0,horizontal:-20" align="horizontal:right,vertical:middle" mouse="onClick:moveMenuScrollerRight"/>
+	<icon  baseUrl="qj_common/modules_img/menuScroller/right2.png" mouseOverUrl="qj_common/modules_img/menuScroller/right2-2.png" move="vertical:0,horizontal:0" align="horizontal:right,vertical:middle" mouse="onClick:hideMenuScroller"/>
+	<showView move="vertical:-150,horizontal:-10" align="horizontal:right,vertical:bottom" mouse="onClick:showMenuScroller" scale="0.5" spaceX="5" spaceY="5"/>
+</MenuScroller>
+	   	/** scroller标签新添加了maskPadding属性，表示头尾的空出部分，可用来放置icon
+	   		scroller标签新添加了boundMaskSize属性，表示边框遮罩的范围
+	   		scroller标签新添加了ratios属性，表示渐变的位置
+	   			boundMaskSize ="100" ratios="[120,255]"
+	   		新添加了icon标签（上下左右滚动，隐藏的箭头）
+	   			baseUrl 表示该图标资源地址
+	   			mouseOverUrl 表示该图标鼠标移上去的资源地址
+	   			align 相对与window的位置
+	   			move 相对与window的位移
+	   			mouse 鼠标事件
+	   					<action id="moveMenuScrollerLeft"  content="MenuScroller.scroll(-200);"/>
+						<action id="moveMenuScrollerRight"  content="MenuScroller.scroll(200);"/>
+						<action id="hideMenuScroller"  content="MenuScroller.setOpen(false);"/>
+			新添加了showView标签（略缩图叠起来）没有则不显示
+				align 相对与屏幕的位置
+	   			move 相对与屏幕的位移
+	   			mouse 鼠标事件
+	   				<action id="showMenuScroller"  content="MenuScroller.setOpen(true);"/>
+	   			scale 图片的缩放比例
+	   			spaceX 叠起来的图片两张之间的X差
+	   			spaceY 叠起来的图片两张之间的Y差
+	   		topBorder 上边框
+	   		bottomBorder 下边框
+	   		
+	   		scroller标签新添加了 isClickItemHide="false" 表示是否在加载完全景后收起列表
+	   	*/
+				

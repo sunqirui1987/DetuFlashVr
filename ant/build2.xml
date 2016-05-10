@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>   
+<!-- 默认执行"build"任务 -->  
+<project name="TTT" basedir="." default="build">   
+    <!-- load previously defined configuration properties file-->  
+    <property file="build.properties" />  
+    <property name="FLEX_HOME" value="C:\Program Files\Adobe\Adobe Flash Builder 4.7 (64 Bit)\sdks\4.6.0"/>   
+	<property name="DEPLOY_DIR" location="../bin_temp"/>   
+	<property name="SOURCE_DIR" location="../src"/>   
+	<property name="LIB_PATH" location="../Lib"/>   
+  
+    <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />  
+    <!-- 执行清理原文档文件夹执行编译flash;然后重新生成文档 -->  
+     <target name="build">  
+        <echo>---------------编译flash---------------</echo>  
+        <!--完成当前构建任务所需的4个调用，首先是清理，如果bin下面有文件，删除掉；-->  
+    <!--<antcall target="clean"/>  -->  
+        <antcall target="compile">  
+            <param name="ImageMapSource" value="com/panozona/modules/imagemap/ImageMap"/> 
+             <param name="ImageMapBin" value="ImageMap"/>  
+        </antcall>  
+  
+    </target>  
+      
+  
+    <!--执行清理--> 
+    <!--  
+    <target name="clean">   
+       <delete includeemptydirs="true">  
+       <fileset dir="${DEPLOY_DIR}" includes="**/*"/>  
+    </delete>  
+  
+    </target>  --> 
+    <!--编译flash-->  
+    <target name="compile">  
+        <mxmlc  
+            file="${SOURCE_DIR}/${ImageMapSource}.as"  
+            output="${DEPLOY_DIR}/${ImageMapBin}.swf"  
+            static-rsls="true"  
+            accessible="true"  
+            debug="false">  
+            <!--设置源代码位置-->  
+            <source-path path-element="${SOURCE_DIR}"/>  
+             <compiler.library-path dir="${LIB_PATH}" append="true">
+                <include name="tweener.swc" />
+            </compiler.library-path>
+        </mxmlc>  
+    </target>  
+  
+</project>  

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="FlashHD3DView" basedir="../.">
+	
+	<property name="debuggableSwf" value="false"/>
+	<property name="FLEX_HOME" value="C:/Program Files (x86)/Adobe/Adobe Flash Builder 4/sdks/4.1.0"/>
+	<!-- 定义模块输出-->
+	
+	<property name="HD_Module" value="src/com/panozona/modules" />
+	<property name="HD_Module_OutPut" value="bin-debug/modules" />
+	
+	<!-- 定义热点输出-->
+	<property name="HD_HotsPots" value="src/com/panozona/hotspots" />
+	<property name="HD_HotsPots_OutPut" value="bin-debug/hotspots" />
+	
+	<!-- 定义视图输出-->
+	<property name="HD_View" value="src/com/panozona/viewer" />
+	<property name="HD_View_OutPut" value="bin-debug/viewer" />
+	
+		
+	
+  <!--定义任务的库引用路径，比如下面我们用到了mxmlc，必须让Ant知道去哪里寻找这个任务的定义，包括类名称和classpath。
+  这里我们配置了4个，实际上用到了3个，即调用mxmlc完成编译，调用html-wrapper对SWF进行HTML包裹，
+  调用asdoc生成代码文档。compc是用来编译库(SWC)文件，这里我们没有用到 -->
+
+  <taskdef name="mxmlc" classname="flex.ant.MxmlcTask" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+  <taskdef name="compc" classname="flex.ant.CompcTask" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+  <taskdef name="html-wrapper" classname="flex.ant.HtmlWrapperTask" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+  <taskdef name="asdoc" classname="flex.ant.AsDocTask" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+
+
+  
+	
+	<target name="BackgroundMusic">
+		<mxmlc
+			file="${basedir}/${BackgroundMusic.as}"
+			output="${basedir}/${BackgroundMusic.swf}"
+			fork="true" maxmemory="512m"
+			debug="${debuggableSwf}"
+			static-link-runtime-shared-libraries="true">
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+			<source-path path-element="${basedir}/src"/>
+			<compiler.include-libraries dir="${basedir}" append="true">
+				<include name="Lib"/>
+			</compiler.include-libraries>
+		</mxmlc>
+	</target>
+	
+	
+</project>

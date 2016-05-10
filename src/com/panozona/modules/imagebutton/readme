@@ -1,0 +1,46 @@
+ <ImageButton path="~flash/qj_common/modules/imagebutton/ImageButton.swf">
+			
+			<groupButton id="gb1">
+       		    <window align="horizontal:center,vertical:top" move="vertical:0,horizontal:0" open="true"  openTween="time:0" closeTween="time:0"/>
+       		   
+       		   
+       		    <bg mouseEnabled="false" mouseChildren="false" type="scale9" size="width:400,height:400" path="qj_common/modules_img/imagemap/images/model2_downListBack.png"  alpha="0.7"  radius="10"/>
+       		   	<!-- 
+       		   		type为"scale9"时，是九宫格；
+       		   		type为"pic"时 ，为背景图片；
+       		   		type为"draw"时 ，为自己画 ,color为颜色，alpha为透明值，radius为圆角值 这三个值只有是type为"draw"时有效
+       		   	-->
+       		   	
+       		   	
+       		    <button id="toggleOpenBaiduMap2aa" path="mapLogo.jpg"  action="toggleOpenBaiduMap">
+					<window  align="horizontal:left,vertical:top" move="vertical:100,horizontal:0" open="true"  openTween="time:0" closeTween="time:0"/>
+				</button>
+				<button id="text22" type="text" text="aas撒啊是" style="small"  action="toggleOpenBaiduMap" textSize="width:260,height:260">
+					<htmlText>
+						<![CDATA[<font color='#ff0000'><b>5.00</b></font>元--啊啊啊]]>
+					</htmlText>
+					<window  align="horizontal:left,vertical:top" move="vertical:200,horizontal:200" open="true"  openTween="time:0" closeTween="time:0"/>
+				</button>
+       		</groupButton>
+			
+			<button id="loadingswf" path="~flash/qj_common/res/loader.swf"  >
+				<window align="horizontal:center,vertical:middle" move="vertical:0,horizontal:0" open="false"  openTween="time:0" closeTween="time:0"/>
+			</button>
+		
+			<button id="buttonMapOpen" path="~flash/qj_common/res/jiantou1.png"  action="mapOpen">
+				<window align="horizontal:left,vertical:top" move="vertical:10,horizontal:0"  openTween="time:1" closeTween="time:1"/>
+			</button>
+			
+			<button id="toggleOpenBaiduMap" path="mapLogo.jpg"  action="toggleOpenBaiduMap">
+				<window  align="horizontal:left,vertical:top" move="vertical:20,horizontal:0" open="true"  openTween="time:0" closeTween="time:0"/>
+			</button>
+			
+			<button id="text" type="text" text="aas撒啊是" style="small"  action="toggleOpenBaiduMap">
+				<window  align="horizontal:left,vertical:top" move="vertical:100,horizontal:200" open="true"  openTween="time:0" closeTween="time:0"/>
+			</button>
+			
+			<styles>
+				<style id="small" content="bubbleColor:#cccccc,bubblePadding:3,fontFamily:宋体,fontSize:15,fontColor:#000000,fontBold:false,borderSize:1,borderRadius:10,borderColor:#cccccc,alpha:0.7,isdropfilter:true,d_angle:45,d_distance:5,d_alpha:0.5,bgAlpha:0.5"/>
+			</styles>
+			
+				 </ImageButton>

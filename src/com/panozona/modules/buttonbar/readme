@@ -1,0 +1,14 @@
+<ButtonBar path="http://img.detuyun.cn/flash/qj_common/modules/buttonbar/ButtonBar.swf">
+					
+					<window  align="horizontal:center,vertical:bottom"  move="vertical:-200,horizontal:0" />
+					<bg color="#cccccc" alpha="0.7" hspace="10" vspace="5" radius="10"/>
+					<buttons path="http://img.detuyun.cn/flash/qj_common/res/controlkey/controlkey_v1_32x32.png" spacing="5">
+							<button name="left" tipurl="http://img.detuyun.cn/flash/qj_common/res/barhelp/1.png"/>
+							<button name="right" tipurl="http://img.detuyun.cn/flash/qj_common/res/barhelp/2.png"/>
+							<button name="out" tipurl="http://img.detuyun.cn/flash/qj_common/res/barhelp/5.png"/>
+							<button name="in" tipurl="http://img.detuyun.cn/flash/qj_common/res/barhelp/6.png"/>
+							<button name="fullscreen" tipurl="http://img.detuyun.cn/flash/qj_common/res/barhelp/8.png"/>
+							
+					
+							</buttons>
+				</ButtonBar>

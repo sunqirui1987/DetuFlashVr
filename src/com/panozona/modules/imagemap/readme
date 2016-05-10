@@ -1,0 +1,175 @@
+<ImageMap path="~flash/qj_common/modules/imagemap/ImageMap.swf">
+			<layers>
+ 				 	<layer name="bg" parent="window"  align="horizontal:left,vertical:top" move="horizontal:200,vertical:100"  zorder="999" url="closeButtonPath.jpg"  handcursor="true"  onclick="toggleOpenBaiduMap"/>
+		 			<layer name="bg2" parent="base"  align="horizontal:left,vertical:top" move="horizontal:0,vertical:0" maskType="circle" maskCircle="x:300,y:300,radius:290" maskRect="x:0,y:0,width:300,height:200"  zorder="999" url="aaa.png"  handcursor="false"  />
+	 		</layers>
+					  <window alpha="0.9" open="true" onOpen="mapOpened" size="width:200,height:267"  onClose="mapClosed" 
+					  openTween="time:0.5" closeTween="time:0.5" align="horizontal:right,vertical:top" move="horizontal:0,vertical:25"
+					  istext="true" /> 
+					   <panel 
+					   panelHeight = "30"
+					   move="vertical:0,horizontal:0" closeButtonMove="vertical:0,horizontal:-100" backPath="panelBack.jpg" closeButtonPath="closeButtonPath.jpg" />
+					  <close path="qj_common/res/cls2.png" move="vertical:-25,horizontal:142" /> 
+					  <viewer path="qj_common/modules_img/imagemap/images/navigation_black_20x20.png" moveEnabled="false" zoomEnabled="false" /> 
+				      <!-- model="1" 
+				      		align="horizontal:left,vertical:middle" 
+				      		move="horizontal:-23,vertical:0" -->
+				      <lists model="2" 
+				      		fontSize = "15"
+				      		textHeight= "21"
+				      		align="horizontal:left,vertical:top" 
+				      		move="horizontal:0,vertical:0"
+				      		model1_num_url="qj_common/modules_img/imagemap/images/model1_num.png" 
+				      		model1_tooltip_url="qj_common/modules_img/imagemap/images/model1_tooltip.png"
+				      		model2_back_url="qj_common/modules_img/imagemap/images/model2_back_url.png"
+				      		model2_downListBack_url="qj_common/modules_img/imagemap/images/model2_downListBack_url.png"
+				      		model2_dropListSmallArrow_url="qj_common/modules_img/imagemap/images/model2_dropListSmallArrow.png" 
+				      		model2_dropListTriangle_url="qj_common/modules_img/imagemap/images/model2_dropListTriangle_url.png"
+				      		>
+					      <list id="setlevel1" label="一号" mapid="map1" />
+					      <list  id="setlevel2" label="二楼号" mapid="map2"/>
+				      </lists>
+				    <maps>
+					<map id="map1" path="http://qzbwg.owyun.com/xml/res/yl.swf" zoom="init:30,max:35,min:25"  >
+						
+
+						<waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:5">
+						<waypoint target="pa1" position="x:324,y:771"/>
+					    </waypoints>
+						
+					    <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:0">
+						<waypoint target="pa2" position="x:324,y:711"/>
+					    </waypoints>
+					
+				        <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:-20">
+						<waypoint target="pa3" position="x:324,y:240"/>
+					    </waypoints>
+						
+						<waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:-75">
+						<waypoint target="pa19" position="x:324,y:423"/>
+					    </waypoints>
+					
+					
+						
+				     </map>
+					 
+					 <map id="map2" path="http://qzbwg.owyun.com/xml/res/el.swf"  zoom="init:30,max:35,min:25">
+					    <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:85">
+						<waypoint target="pa4" position="x:490,y:445"/>
+					    </waypoints>
+						
+					    <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:-20">
+						<waypoint target="pa5" position="x:562,y:445"/>
+					    </waypoints>
+					
+				        <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:-80">
+						<waypoint target="pa6" position="x:487,y:256"/>
+					    </waypoints>
+						
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:80">
+						<waypoint target="pa7" position="x:487,y:173"/>
+					    </waypoints>
+						
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:-140">
+						<waypoint target="pa8" position="x:550,y:141"/>
+					    </waypoints>
+						
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:5">
+						<waypoint target="pa9" position="x:317,y:457"/>
+					    </waypoints>
+				
+				        <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:50">
+						<waypoint target="pa10" position="x:235,y:457"/>
+					    </waypoints>
+						
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:0">
+						<waypoint target="pa11" position="x:317,y:497"/>
+					    </waypoints>
+						
+						
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:-40">
+						<waypoint target="pa12" position="x:395,y:457"/>
+					    </waypoints>
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:260">
+						<waypoint target="pa13" position="x:150,y:74"/>
+					    </waypoints>
+						
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:-130">
+						<waypoint target="pa14" position="x:60,y:117"/>
+					    </waypoints>
+						
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:0">
+						<waypoint target="pa15" position="x:77,y:264"/>
+					    </waypoints>
+						
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:-40">
+						<waypoint target="pa16" position="x:60,y:445"/>
+					    </waypoints>
+						
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:10">
+						<waypoint target="pa17" position="x:122,y:373"/>
+					    </waypoints>
+						
+						 <waypoints path="qj_common/res/waypoints11_button_20x20.png"  radar="showTilt:true,color:#FFFF00,borderColor:#FFFF00,borderSize:0,radius:25,panShift:10">
+						<waypoint target="pa18" position="x:194,y:429"/>
+					    </waypoints>
+					
+				</map>
+			  </maps>
+			</ImageMap>
+			
+			
+/----------------------新添加了tab---------
+			skinUrls:资源地址
+			View：界面
+			
+				
+			<tab skinUrls="qj_common/modules_img/imagemap/comp.swf" />
+					<View width="284" height="270">
+						<Box x="0" y="0">
+							<Tab selectedIndex="0" var="tab">
+								<Button label="地图" name="item0" skin="png.comp.button2"
+									width="143" height="28" buttonMode="true" sizeGrid="5,5,5,5"
+									labelColors="0xffffff,0xffffff,0xffffff,0xffffff" />
+								<Button label="列表" name="item1" x="143" width="143" height="28"
+									buttonMode="true" skin="png.comp.button2" sizeGrid="5,5,5,5"
+									labelColors="0xffffff,0xffffff,0xffffff,0xffffff" />
+							</Tab>
+							<ViewStack x="1" y="29" selectedIndex="0" var="viewStack">
+								<Box name="item0" x="0" y="0" width="284" height="241">
+									<Image skin="png.comp.bg2" left="0" right="0" top="0" bottom="0"
+										sizeGrid="5,5,5,5" />
+									<Box var="box" x="0" y="30" width="284" height="211" />
+								</Box>
+								<Box name="item1" x="0" y="0" width="284" height="241">
+									<Image skin="png.comp.bg2" left="0" right="0" top="0" bottom="0"
+										sizeGrid="5,5,5,5" />
+									<Panel var="panel" name="item1" x="5" y="30" width="274"
+										height="208" vScrollBarSkin="png.comp.vscroll">
+										<List repeatX="1" var="list_all" spaceY="10">
+											<Box name="render">
+												<Label name="label1" text="第一层" width="90" height="18"
+													bold="true" color="0x666666" />
+												<List name="list1" x="15" y="20" repeatX="3" spaceX="5"
+													spaceY="5">
+													<Box name="render" x="0" y="0" width="75" height="19">
+														<LinkButton name="linkButton1" label="label"
+															labelColors="0x000000,0xff0000,0x00ff00,0x3e3e3e" />
+													</Box>
+												</List>
+											</Box>
+										</List>
+									</Panel>
+								</Box>
+							</ViewStack>
+							<Image skin="png.comp.bg3" x="3" y="31" width="278" sizeGrid="5,5,5,5"
+								height="30" />
+							<ComboBox labels="label1,label2" skin="png.comp.combobox" x="7"
+								y="34" var="cmb" />
+							<Label text="label" x="103" y="34" width="166" height="22"
+								var="lab_hotName" />
+						</Box>
+					</View>
+					
+	//--------新增
+	panel 标签新加panelHeight = "30"属性，表示panel背景条高度				
